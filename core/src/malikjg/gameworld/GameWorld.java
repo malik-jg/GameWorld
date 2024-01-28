@@ -1,31 +1,35 @@
 package malikjg.gameworld;
 
-import com.badlogic.gdx.ApplicationAdapter;
-import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.Game;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.utils.ScreenUtils;
+import com.badlogic.gdx.utils.viewport.FitViewport;
 
-public class GameWorld extends ApplicationAdapter {
-	SpriteBatch batch;
-	Texture img;
+public class GameWorld extends Game {
+	private SpriteBatch batch;
+	private MainGameScreen mainScreen;
+	private FitViewport fit_viewport;
 	
 	@Override
 	public void create () {
 		batch = new SpriteBatch();
-		img = new Texture("badlogic.jpg");
+		
+		mainScreen = new MainGameScreen(batch);
+		setScreen(mainScreen);
+		
+		fit_viewport = new FitViewport(1280, 720);
+		fit_viewport.apply();
 	}
-
+	public void resize(int width, int height) {
+		fit_viewport.update(width, height);
+	}
 	@Override
 	public void render () {
-		ScreenUtils.clear(1, 0, 0, 1);
-		batch.begin();
-		batch.draw(img, 0, 0);
-		batch.end();
+		super.render();
 	}
 	
 	@Override
 	public void dispose () {
 		batch.dispose();
-		img.dispose();
+		super.dispose();
 	}
 }
