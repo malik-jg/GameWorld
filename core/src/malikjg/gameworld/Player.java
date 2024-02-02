@@ -122,13 +122,7 @@ public class Player extends Entity{
 		if(coyoteTimeCounter > 0f && jumpBufferCounter > 0f) {
 			coyoteTimeCounter = 0f;
 			jumpBufferCounter = 0f;
-			//hitbox.y -= delta;
-			//for(Block block: world.getBlocks()) {
-				//if(block.getHitbox().overlaps(hitbox) 	) {
-					velocity.y = 2250;
-				//}
-			//}
-			//hitbox.y += delta;
+			velocity.y = 2250;
 		}
 	}
 	public void collision(float delta) {	
@@ -174,6 +168,7 @@ public class Player extends Entity{
 		temp_hitbox.y --;
 		for(Block block: handler.getBlocks()) {
 			if(block.getHitbox().overlaps(temp_hitbox)) {
+				System.out.println("Grounded");
 				return true;
 			}
 		}

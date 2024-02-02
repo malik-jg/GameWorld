@@ -28,6 +28,7 @@ public class MainGameScreen implements Screen{
 		keyInput = new KeyInput(handler);
 		camera = new OrthographicCamera(WIDTH, HEIGHT);
 		world = new World(handler, batch);
+		world.generate();
 	}
 	@Override
 	public void show() {
@@ -44,12 +45,20 @@ public class MainGameScreen implements Screen{
 		batch.begin();
 		
 		world.render(batch);
+		//world.update(delta);
 		player.render(batch);
 		player.update(delta);
 		keyInput.update();
 		
 		camera.position.set(player.getPosition().x + (player.getWidth() / 2), player.getPosition().y + (player.getHeight() / 2), 10);
 		batch.end();
+		
+		if(handler.isZoomIn()) {
+			camera.zoom += .40;
+		}
+		else if(handler.isZoomOut()) {
+			camera.zoom -= .40;
+		}
 	}
 
 	@Override
