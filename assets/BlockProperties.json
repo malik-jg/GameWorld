@@ -1,0 +1,18 @@
+[
+	{
+		"type": "test_area",
+		"properties": {
+			"name": "Test",
+			"texture": "test_texture.png",
+			"damage": 0
+		}
+	},
+	{
+		"type": "lava",
+		"properties": {
+			"name": "Lava",
+			"texture": "damage_texture.png",
+			"damage": 1
+		}
+	}
+]
