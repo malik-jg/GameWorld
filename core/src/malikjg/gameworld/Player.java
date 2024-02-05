@@ -24,7 +24,7 @@ public class Player extends Entity{
 		super(handler);
 		
 		xPosition = 0;
-		yPosition = 0;
+		yPosition = 128;
 		
 		xVelocity = 0;
 		yVelocity = 0;
@@ -168,7 +168,6 @@ public class Player extends Entity{
 		temp_hitbox.y --;
 		for(Block block: handler.getBlocks()) {
 			if(block.getHitbox().overlaps(temp_hitbox)) {
-				System.out.println("Grounded");
 				return true;
 			}
 		}
@@ -180,8 +179,8 @@ public class Player extends Entity{
 		if(position.y <= -1000) {
 			velocity.x = 0;
 			velocity.y = 0;
-			position.x = -0;
-			position.y = 0;
+			position.x = 0;
+			position.y = 128;
 		}
 	}
 }

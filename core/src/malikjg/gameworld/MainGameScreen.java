@@ -27,8 +27,11 @@ public class MainGameScreen implements Screen{
 		handler = new Handler();
 		keyInput = new KeyInput(handler);
 		camera = new OrthographicCamera(WIDTH, HEIGHT);
+		Block.loadBlockProperties();
+		Block.loadTextures();
 		world = new World(handler, batch);
 		world.generate();
+		
 	}
 	@Override
 	public void show() {
