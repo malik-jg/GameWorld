@@ -1,17 +1,19 @@
 [
 	{
-		"type": "test_area",
+		"id": 0,
 		"properties": {
+			"block_type": "test",
 			"name": "Test",
-			"texture": "test_texture.png",
+			"texture_path": "block.png",
 			"damage": 0
 		}
 	},
 	{
-		"type": "lava",
+		"id": 1,
 		"properties": {
+			"block_type": "lava",
 			"name": "Lava",
-			"texture": "damage_texture.png",
+			"texture_path": "lava.png",
 			"damage": 1
 		}
 	}
